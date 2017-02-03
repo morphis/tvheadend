@@ -1,0 +1,11 @@
+#!/bin/sh
+
+rm -f $SNAP_DATA/config
+touch $SNAP_DATA/config
+
+value="$(snapctl get satip.local-address)"
+if [ -n "$value" ]; then
+    echo "SATIP_LOCAL_ADDRESS=$value" >> $SNAP_DATA/config
+else
+    echo "SATIP_LOCAL_ADDRESS=" >> $SNAP_DATA/config
+fi
