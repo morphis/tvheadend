@@ -19,13 +19,22 @@ description: |
 
   The code is hosted at github https://github.com/tvheadend/tvheadend.
 grade: stable
-confinement: strict
+confinement: devmode
 
 apps:
   tvheadend:
-    command: bin/tvheadend
+    command: tvheadend.wrapper
+    daemon: simple
 
 parts:
+  common:
+    plugin: dump
+    source: snap
+    filesets:
+      wrappers:
+        - tvheadend.wrapper
+    prime:
+      - $wrappers
   tvheadend:
     plugin: autotools
     source: .

@@ -1,0 +1,21 @@
+#!/bin/sh -ex
+
+if [ ! -e $SNAP_DATA/config ]; then
+    touch $SNAP_DATA/config
+    echo "SATIP_LOCAL_ADDRESS=" >> $SNAP_DATA/config
+fi
+
+. $SNAP_DATA/config
+
+EXTRA_ARGS=
+if [ -n "$SATIP_LOCAL_ADDRESS" ]; then
+    EXTRA_ARGS="$EXTRA_ARGS --satip_bindaddr $SATIP_LOCAL_ADDRESS"
+fi
+
+if [ ! -e $SNAP_DATA/setup_done ]; then
+    EXTRA_ARGS="$EXTRA_ARGS -C"
+    touch $SNAP_DATA/setup_done
+fi
+
+export HOME=$SNAP_COMMON
+exec $SNAP/bin/tvheadend $EXTRA_ARGS
