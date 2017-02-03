@@ -686,7 +686,7 @@ fi
 # Write config
 write_config
 cat >> "${CONFIG_H}" <<EOF
-#define TVHEADEND_DATADIR "$(eval echo ${datadir})/tvheadend"
+#define TVHEADEND_DATADIR "/snap/tvheadend/current/share/tvheadend"
 EOF
 
 # Output config
