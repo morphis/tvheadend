@@ -38,12 +38,16 @@ parts:
   tvheadend:
     plugin: autotools
     source: .
+    configflags:
+      - --disable-dvbscan
     build-packages:
       - build-essential
+      - cmake
       - pkg-config
       - libssl-dev
       - bzip2
       - wget
+      - gettext
       - libavahi-client-dev
       - zlib1g-dev
       - libavcodec-dev
