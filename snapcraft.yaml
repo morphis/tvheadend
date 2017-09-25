@@ -1,5 +1,5 @@
-name: tvheadend
-version: 0
+name: tvheadend-morphis
+version: v4.3-1
 summary: Tvheadend is a TV streaming server and digital video recorder
 description: |
   Tvheadend is a TV streaming server and recorder for Linux, FreeBSD
